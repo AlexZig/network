@@ -1,6 +1,8 @@
 import React from 'react';
+import {Routes, Route} from 'react-router-dom';
 import './App.css';
-import Content from './components/Profile/Profile';
+import Profile from './components/Profile/Profile';
+import Chats from './components/Chats/Chats';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 
@@ -9,7 +11,10 @@ function App() {
     <div className="app-wrapper">
       <Header />
       <Nav />
-      <Content />
+      <Routes>
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/chats' element={<Chats />} />
+      </Routes>
     </div>
   );
 }
