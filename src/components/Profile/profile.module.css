@@ -1,0 +1,6 @@
+.container{
+    flex-grow: 1;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid var(--borderColor);
+    border-bottom: none;
+}

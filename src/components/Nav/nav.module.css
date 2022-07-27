@@ -1,0 +1,20 @@
+.container {
+    
+}
+.list{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border: 1px solid var(--borderColor);
+    border-radius: 8px;
+    gap: 8px;
+    overflow: hidden;
+}
+.link{
+    color: var(--color);
+    padding: 8px;
+}
+.link:hover{
+    background-color: var(--borderColor);
+    color: var(--bacgroundColor);
+}

@@ -1,4 +1,19 @@
 @import-normalize;
+:root{
+    --bacground: #111111;
+    --color: #e6e6e6;
+	--borderColor: #e6e6e689;
+}
+*{
+	transition: all 0.4s;
+	color: var(--color);
+	background-color: var(--bacground);
+}
+body{
+	background-color: var(--bacground);
+	margin: 0;
+}
+
 *{
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	text-decoration: none;

@@ -1,11 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import localStyle from './nav.module.css'
 function Nav() {
     return (
-        <div className="nav">
-            <Link to='/profile'>Profile</Link>
-            <Link to='/chats'>Chats</Link>
-        </div>
+        <nav className='nav'>
+            <div className={localStyle.container}>
+                <div className={localStyle.list}>
+                    <Link to='/profile' className={localStyle.link}>Profile</Link>
+                    <Link to='/chats' className={localStyle.link}>Chats</Link>
+                </div>
+            </div>
+        </nav>
     );
 }
 

@@ -1,8 +1,11 @@
 import React from 'react';
+import localStyle from './chats.module.css'
 function Chats() {
     return ( 
-        <div>
-            Chats
+        <div className="chats">
+            <div className={localStyle.container}>
+                Chats
+            </div>
         </div>
      );
 }
