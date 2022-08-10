@@ -1,3 +1,4 @@
+import {mainRender} from '../render';
 let State = {
     chatsPage: {
         chats: [
@@ -27,6 +28,6 @@ export let addPost = (postText) =>{
     };
     debugger;
     State.profilePage.posts.push(newPost);
-    console.log(State.profilePage.posts)
+    mainRender(State);
 }
 export default State;

@@ -8,6 +8,7 @@ function MyPosts(props) {
         debugger
         let postText = newPostText.current.value;
         props.addPost(postText);
+        newPostText.current.value = '';
     }
     return (
         <div className={localStyle.container}>

@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     height: auto;
-    border: 1px solid var(--borderColor);
-    border-radius: 8px;
+    border-bottom: 1px solid var(--borderColor);
+    border-top: 1px solid var(--borderColor);
     gap: 8px;
     overflow: hidden;
 }

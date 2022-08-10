@@ -1,6 +1,6 @@
 import React from 'react';
 import MyPosts from './MyPosts/MyPosts';
-import localStyle from './profile.module.css'
+import localStyle from './profile.module.css';
 function Profile(props) {
     return (
         <div className={localStyle.container}>
