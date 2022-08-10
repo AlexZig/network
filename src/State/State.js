@@ -19,4 +19,14 @@ let State = {
         ]
     }
 }
+
+export let addPost = (postText) =>{
+    let newPost = {
+        id: 5,
+        text: postText
+    };
+    debugger;
+    State.profilePage.posts.push(newPost);
+    console.log(State.profilePage.posts)
+}
 export default State;

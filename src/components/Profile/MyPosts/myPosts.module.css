@@ -1,0 +1,48 @@
+.container {
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    overflow-y: auto;
+}
+
+.list {
+    width: 100%;
+    flex-grow: 1;
+    border-top: 1px solid var(--borderColor);
+    overflow-y: auto;
+}
+
+.managment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px 0;
+}
+
+.managment button {
+    padding: 8px 32px;
+    background-color: var(--bacground);
+    color: var(--color);
+    border: 1px solid var(--borderColor);
+}
+.managment button:hover{
+    background-color: var(--color);
+    color: var(--bacground);
+}
+.managment textarea{
+    padding: 8px;
+    width: 100%;
+    flex-grow: 1;
+    height: 10vh;
+    min-height: 60px;
+    max-height: 150px;
+    resize: none;
+    outline: none;
+    background-color: var(--bacground);
+    color: var(--color);
+    border: 1px solid var(--borderColor);
+}
+.managment textarea:focus{
+    box-shadow: 0 0 8px var(--borderColor);
+}

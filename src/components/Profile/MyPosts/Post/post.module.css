@@ -1,0 +1,9 @@
+.item{
+    border-bottom: 1px solid var(--borderColor);
+    padding: 8px;
+}
+.item img{
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+}
