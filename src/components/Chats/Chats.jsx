@@ -1,13 +1,26 @@
 import React from 'react';
+import { renderIntoDocument } from 'react-dom/test-utils';
 import localStyle from './chats.module.css'
-function Chats() {
-    return ( 
+import ChatsItem from './ChatsItem/ChatsItem';
+import Massage from './Massage/Massage';
+
+
+
+
+function Chats(props) {
+    return (
         <div className="chats">
             <div className={localStyle.container}>
-                Chats
+                <div className={localStyle.list}>
+                    {props.massagesData.chats.map(item => <ChatsItem name={item.name} id={item.id} />)}
+
+                </div>
+                <div className={localStyle.massages}>
+                    {props.massagesData.massages.map(item => <Massage massage={item.massage} id={item.id} />)}
+                </div>
             </div>
         </div>
-     );
+    );
 }
 
 export default Chats;

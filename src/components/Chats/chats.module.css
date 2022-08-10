@@ -3,4 +3,16 @@
     border-radius: 8px 8px 0 0;
     border: 1px solid var(--borderColor);
     border-bottom: none;
+    display: flex;
+}
+.list{
+    width: 20%;
+    min-width: 200px;
+    max-width: 250px;
+    height: 100%;
+    border-right: 1px solid var(--borderColor);
+}
+.massage{
+    flex-grow: 1;
+    height: 100%;
 }

@@ -1,11 +1,10 @@
 import React from 'react';
+import MyPosts from './MyPosts/MyPosts';
 import localStyle from './profile.module.css'
-function Profile() {
+function Profile(props) {
     return ( 
         <div className="profile">
-            <div className={localStyle.container}>
-                Profile
-            </div>
+            <MyPosts  postsData={props.profileData.posts}/>
         </div>
      );
 }

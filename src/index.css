@@ -8,6 +8,7 @@
 	transition: all 0.4s;
 	color: var(--color);
 	background-color: var(--bacground);
+	box-sizing: border-box;
 }
 body{
 	background-color: var(--bacground);
