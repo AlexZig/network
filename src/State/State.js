@@ -1,4 +1,4 @@
-import {mainRender} from '../render';
+
 let State = {
     chatsPage: {
         chats: [
@@ -26,8 +26,11 @@ export let addPost = (postText) =>{
         id: 5,
         text: postText
     };
-    debugger;
     State.profilePage.posts.push(newPost);
     mainRender(State);
 }
+let mainRender = () => {};
+export const subscribe = (observer) => {
+    mainRender = observer;
+};
 export default State;
