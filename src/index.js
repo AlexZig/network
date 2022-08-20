@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, {subscribe ,addPost} from './State/State';
+import store from './State/State'
 import './index.css'
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let mainRender = () => {
+let mainRender = (state) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} addPost={addPost} />
+                <App state={state} addPost={store.addPost.bind(store)} />
             </BrowserRouter>
         </React.StrictMode>
     );
 }
-mainRender(state);
+mainRender(store.getState());
 reportWebVitals();
-subscribe(mainRender);
+store.subscribe(mainRender);
