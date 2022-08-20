@@ -5,7 +5,6 @@ import Post from './Post/Post';
 function MyPosts(props) {
     let newPostText = React.createRef();
     let addPost = () => {
-        debugger
         let postText = newPostText.current.value;
         props.addPost(postText);
         newPostText.current.value = '';

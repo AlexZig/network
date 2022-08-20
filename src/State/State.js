@@ -14,23 +14,25 @@ let State = {
     },
     profilePage: {
         posts: [
-            {id: 1, text: 'Hello'},
-            {id: 1, text: 'Hello'},
-            {id: 1, text: 'Hello'}
+            { id: 1, text: 'Hello' },
+            { id: 1, text: 'Hello' },
+            { id: 1, text: 'Hello' }
         ]
     }
 }
-
-export let addPost = (postText) =>{
+let mainRender;
+export let addPost = (postText) => {
     let newPost = {
         id: 5,
         text: postText
     };
     State.profilePage.posts.push(newPost);
+    debugger
     mainRender(State);
 }
-let mainRender = () => {};
+
 export const subscribe = (observer) => {
     mainRender = observer;
 };
 export default State;
+
