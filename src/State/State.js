@@ -21,38 +21,27 @@ let store = {
         }
     },
     getState() {
-        return(
+        return (
             this._state
         )
     },
     mainRender() { },
-    addPost(postText) {
-        let newPost = {
-            id: 5,
-            text: postText
-        };
-        this._state.profilePage.posts.push(newPost);
-        debugger
-        this.mainRender(this._state);
-    },
     subscribe(observer) {
         this.mainRender = observer;
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                text: action.postText
+            };
+            this.getState().profilePage.posts.unshift(newPost);
+            this.mainRender(this.getState());
+        }
     }
 }
 export default store;
 window.store = store;
-// export let addPost = (postText) => {
-//     let newPost = {
-//         id: 5,
-//         text: postText
-//     };
-//     State.profilePage.posts.push(newPost);
-//     debugger
-//     mainRender(State);
-// }
 
-// export const subscribe = (observer) => {
-//     mainRender = observer;
-// };
 
 

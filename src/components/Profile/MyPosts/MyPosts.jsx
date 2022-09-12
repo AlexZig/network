@@ -6,14 +6,42 @@ function MyPosts(props) {
     let newPostText = React.createRef();
     let addPost = () => {
         let postText = newPostText.current.value;
-        props.addPost(postText);
-        newPostText.current.value = '';
+        let action = {
+            type: 'ADD-POST',
+            postText: postText
+        }
+        if (postText !== '') {
+            props.dispatch(action);
+            newPostText.current.value = '';
+        } else {
+            alert('Введите текст поста');
+        }
+    }
+    let addPostKey = (e) => {
+        console.log(e)
+        if (e.code === 'Enter' && !e.shiftKey) {
+            let postText = newPostText.current.value;
+            let action = {
+                type: 'ADD-POST',
+                postText: postText
+            }
+            if (postText !== '') {
+                props.dispatch(action);
+                newPostText.current.value = '';
+                newPostText.current.blur();
+            } else {
+                alert('Введите текст поста');
+            }
+        } else if (e.code === 'Enter' && e.shiftKey) {
+            newPostText.current.value = newPostText.current.value + '\ ';
+            console.log(newPostText.current.value)
+        }
     }
     return (
         <div className={localStyle.container}>
             <h3>My Posts</h3>
             <div className={localStyle.managment}>
-                <textarea ref={newPostText} placeholder='Your Post' ></textarea>
+                <textarea onKeyDown={addPostKey} ref={newPostText} placeholder='Your Post' ></textarea>
                 <button onClick={addPost}>Add Post</button>
             </div>
             <div className={localStyle.list}>

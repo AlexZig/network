@@ -7,7 +7,7 @@ function Profile(props) {
             <div className={localStyle.wall}>
 
             </div>
-            <MyPosts postsData={props.profileData.posts} addPost={props.addPost} />
+            <MyPosts postsData={props.profileData.posts} dispatch={props.dispatch} />
         </div>
     );
 }

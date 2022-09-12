@@ -7,6 +7,7 @@ function Post(props) {
             <img src={img} />
             <h3>Alex</h3>
             <p>{props.text}</p>
+            <span>×</span>
         </div>
     );
 }

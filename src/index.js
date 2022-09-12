@@ -6,11 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import store from './State/State'
 import './index.css'
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let mainRender = (state) => {
+let mainRender = (state) => {//ГЛАВНАЯ ОТРИСОВКА ПРИНИМАЕТ ВСЕ ДАННЫЕ
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} addPost={store.addPost.bind(store)} />
+                <App state={state} dispatch={store.dispatch.bind(store)} />
             </BrowserRouter>
         </React.StrictMode>
     );

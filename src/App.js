@@ -16,7 +16,7 @@ function App(props) {
           path='/profile'
           element={<Profile 
             profileData={props.state.profilePage}
-            addPost={props.addPost}
+            dispatch={props.dispatch}
           />}
         />
         <Route
