@@ -23,6 +23,7 @@ function App(props) {
           path='/chats'
           element={<Chats
             massagesData={props.state.chatsPage}
+            dispatch={props.dispatch}
           />}
         />
       </Routes>

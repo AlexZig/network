@@ -16,7 +16,7 @@
     background-color: transparent;
 }
 .list::-webkit-scrollbar-thumb{
-    background: linear-gradient(rgba(133, 6, 139, 0.88), rgb(196, 14, 102));
+    background: var(--decorBg);
 }
 
 .managment {
@@ -35,14 +35,11 @@
     transition: 0.4s;
 }
 .managment button:hover{
-    background-color: var(--color);
-    color: var(--bacground);
+    background-color: var(--borderColor);
 }
 .managment textarea{
     padding: 8px;
     width: 100%;
-    flex-grow: 1;
-    height: 10vh;
     min-height: 60px;
     max-height: 150px;
     resize: none;

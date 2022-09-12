@@ -2,6 +2,7 @@ import React from 'react';
 import { renderIntoDocument } from 'react-dom/test-utils';
 import localStyle from './chats.module.css'
 import ChatsItem from './ChatsItem/ChatsItem';
+import ChatsManagment from './ChatsManagment/ChatManagment';
 import Massage from './Massage/Massage';
 
 
@@ -16,6 +17,7 @@ function Chats(props) {
 
                 </div>
                 <div className={localStyle.massages}>
+                    <ChatsManagment dispatch={props.dispatch} />
                     {props.massagesData.massages.map(item => <Massage massage={item.massage} id={item.id} />)}
                 </div>
             </div>

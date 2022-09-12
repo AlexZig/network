@@ -13,5 +13,5 @@
     height: 20vh;
     min-height: 150px;
     max-height: 200px;
-    background-image: linear-gradient(rgba(133, 6, 139, 0.88), rgb(196, 14, 102));
+    background: var(--decorBg);
 }

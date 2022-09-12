@@ -45,6 +45,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 800;margin:0.5em 0;}
 	--color: #e6e6e6;
 	--borderColor: #e6e6e689;
 	--borderFocus: #e6e6e6;
+	--decorBg: linear-gradient(rgba(133, 6, 139, 0.88), rgb(196, 14, 102));
 }
 
 * {

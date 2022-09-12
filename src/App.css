@@ -15,6 +15,7 @@
 }
 .app-wrapper > div{
     display: flex;
+    overflow: hidden;
 }
 .header{
     grid-area: header;

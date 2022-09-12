@@ -1,8 +1,15 @@
 const ADD_POST = 'ADD-POST';
+const SUBMIT_MASSAGE = 'SUBMIT-MASSAGE';
 let store = {
     _state: {
         chatsPage: {
             chats: [
+                { id: 1, name: 'Alex' },
+                { id: 2, name: 'Leonid' },
+                { id: 1, name: 'Alex' },
+                { id: 2, name: 'Leonid' },
+                { id: 1, name: 'Alex' },
+                { id: 2, name: 'Leonid' },
                 { id: 1, name: 'Alex' },
                 { id: 2, name: 'Leonid' },
                 { id: 3, name: 'Gosha' }
@@ -37,14 +44,27 @@ let store = {
                 text: action.postText
             };
             this.getState().profilePage.posts.unshift(newPost);
-            this.mainRender(this.getState());
-        }
+        }else if(action.type === SUBMIT_MASSAGE) {
+            debugger
+            let newMassage = {
+                id: 5,
+                massage: action.massageText
+            };
+            this.getState().chatsPage.massages.unshift(newMassage);
+        } 
+        this.mainRender(this.getState());
     },
 }
 export const addPostActionCreator = (postText) => {
     return {
         type: ADD_POST,
         postText: postText
+    }
+}
+export const submitMassageActionCreator = (massageText) => {
+    return {
+        type: SUBMIT_MASSAGE,
+        massageText: massageText
     }
 }
 export default store;

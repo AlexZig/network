@@ -1,18 +1,97 @@
 .container{
     flex-grow: 1;
-    border-radius: 8px 8px 0 0;
     border: 1px solid var(--borderColor);
     border-bottom: none;
+    border-top: none;
+    border-right: none;
     display: flex;
+    gap: 4px;
 }
 .list{
     width: 20%;
     min-width: 200px;
     max-width: 250px;
     height: 100%;
-    border-right: 1px solid var(--borderColor);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
 }
-.massage{
+.list::-webkit-scrollbar{
+    width: 4px;
+    background-color: transparent;
+}
+.list::-webkit-scrollbar-thumb{
+    background: var(--decorBg);
+}
+.list a{
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.4s;
+}
+.list img{
+    width: 36px;
+    border-radius: 100%;
+}
+.list a:hover{
+    background-color: var(--borderColor);
+}
+.massages{
+    position: relative;
+    padding: 0 8px;
     flex-grow: 1;
     height: 100%;
+    width: 50%;
+    border-left: 1px solid var(--borderColor);
+}
+.managment{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    display: flex;
+    gap: 8px;
+    padding: 0 0 0 8px;
+    align-items: flex-end;
+}
+.managment textarea{
+    width: 80%;
+    flex-grow: 1;
+    padding: 8px;
+    resize: none;
+    overflow: hidden;
+    overflow-y: auto;
+    min-height: 60px;
+    max-height: 160px;
+    border: 1px solid var(--borderColor);
+    background-color: var(--bacground);
+    transition: 0.4s;
+    color: var(--color);
+}
+.managment textarea::-webkit-scrollbar{
+    width: 4px;
+    background-color: transparent;
+}
+.managment textarea::-webkit-scrollbar-thumb{
+    background: var(--decorBg);
+}
+.managment textarea::placeholder{
+    color: var(--borderColor);
+}
+.managment textarea:focus{
+    border-color: var(--color);
+}
+.managment button{
+    height: 5vh;
+    width: 5vh;
+    background-color: var(--bacground);
+    color: var(--color);
+    border: 1px solid var(--borderColor);
+    transition: 0.4s;
+}
+.managment button:hover{
+    background-color: var(--borderColor);
 }
