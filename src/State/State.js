@@ -1,3 +1,4 @@
+const ADD_POST = 'ADD-POST';
 let store = {
     _state: {
         chatsPage: {
@@ -30,7 +31,7 @@ let store = {
         this.mainRender = observer;
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 text: action.postText
@@ -38,6 +39,12 @@ let store = {
             this.getState().profilePage.posts.unshift(newPost);
             this.mainRender(this.getState());
         }
+    },
+}
+export const addPostActionCreator = (postText) => {
+    return {
+        type: ADD_POST,
+        postText: postText
     }
 }
 export default store;

@@ -1,36 +1,34 @@
 import React from 'react';
 import localStyle from './myPosts.module.css'
 import Post from './Post/Post';
+import { addPostActionCreator } from '../../../State/State';
 
 function MyPosts(props) {
     let newPostText = React.createRef();
+    
     let addPost = () => {
         let postText = newPostText.current.value;
-        let action = {
-            type: 'ADD-POST',
-            postText: postText
-        }
+        let action = addPostActionCreator(postText);
         if (postText !== '') {
             props.dispatch(action);
             newPostText.current.value = '';
         } else {
             alert('Введите текст поста');
+            newPostText.current.blur();
         }
     }
     let addPostKey = (e) => {
         console.log(e)
         if (e.code === 'Enter' && !e.shiftKey) {
             let postText = newPostText.current.value;
-            let action = {
-                type: 'ADD-POST',
-                postText: postText
-            }
+            let action = addPostActionCreator(postText);
             if (postText !== '') {
                 props.dispatch(action);
                 newPostText.current.value = '';
                 newPostText.current.blur();
             } else {
                 alert('Введите текст поста');
+                newPostText.current.blur();
             }
         } else if (e.code === 'Enter' && e.shiftKey) {
             newPostText.current.value = newPostText.current.value + '\ ';
