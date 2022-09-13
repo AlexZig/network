@@ -2,45 +2,42 @@ import React from 'react'
 import localStyle from '../chats.module.css'
 import { submitMassageActionCreator } from '../../../State/State';
 function ChatsManagment(props) {
-  let textarea = React.createRef();
+  let textarea;
+
   let submitMassage = () => {
-    let massageText = textarea.current.value;
-    let action = submitMassageActionCreator(massageText);
-    debugger
-    if (massageText !== '') {
+    let action = submitMassageActionCreator(textarea.value);
+    if (textarea.value !== '') {
       props.dispatch(action);
-      textarea.current.value = '';
-      debugger
+      textarea.value = '';
     } else {
       alert('Введите текст поста');
     }
-    textarea.current.blur();
+    textarea.blur();
   }
   let submitMassageKey = (e) => {
-    console.log(e)
     if (e.code === 'Enter' && !e.shiftKey) {
-      let massageText = textarea.current.value;
-      let action = submitMassageActionCreator(massageText);
-      if (massageText !== '') {
+      let action = submitMassageActionCreator(textarea.value);
+      if (textarea.value !== '') {
         props.dispatch(action);
-        textarea.current.value = '';
+        textarea.value = '';
       } else {
         alert('Введите текст поста');
       }
-      textarea.current.blur();
+      textarea.blur();
     } else if (e.code === 'Enter' && e.shiftKey) {
-      textarea.current.value = textarea.current.value + '\ ';
+      textarea.value = textarea.value + '\ ';
     }
   }
 
   let input = () => {
-    textarea.current.style.height = textarea.current.scrollHeight + "px";
+    textarea.style.height = textarea.scrollHeight + "px";
   };
-  let focus = () => {
-    textarea.current.style.height = textarea.current.scrollHeight + "px";
+  let focus = (e) => {
+    textarea = e.target;
+    textarea.style.height = textarea.scrollHeight + "px";
   };
   let blur = () => {
-    textarea.current.style.height = 60 + "px";
+    textarea.style.height = 60 + "px";
   };
   return (
     <div className={localStyle.managment}>

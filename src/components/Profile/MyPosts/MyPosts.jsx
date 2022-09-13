@@ -4,46 +4,51 @@ import Post from './Post/Post';
 import { addPostActionCreator } from '../../../State/State';
 
 function MyPosts(props) {
-    let newPostText = React.createRef();
+    let newPostText = '';
+    let textarea;
+    let textareafocus = (e) => {
+        textarea = e.target;
+    }
+    let inputText = (e) => {
+        textarea = e.target;
+        newPostText = e.target.value;
+    }
     
-    let addPost = () => {
-        let postText = newPostText.current.value;
-        let action = addPostActionCreator(postText);
-        if (postText !== '') {
+    let addPost = (e) => {
+        let action = addPostActionCreator(newPostText);
+        if (newPostText !== '') {
             props.dispatch(action);
-            newPostText.current.value = '';
+            newPostText = '';
+            textarea.value = '';
         } else {
             alert('Введите текст поста');
-            newPostText.current.blur();
         }
+        textarea.blur();
     }
     let addPostKey = (e) => {
-        console.log(e)
         if (e.code === 'Enter' && !e.shiftKey) {
-            let postText = newPostText.current.value;
-            let action = addPostActionCreator(postText);
-            if (postText !== '') {
+            let action = addPostActionCreator(newPostText);
+            if (newPostText !== '') {
                 props.dispatch(action);
-                newPostText.current.value = '';
-                newPostText.current.blur();
+                newPostText = '';
+                textarea.value = '';
             } else {
                 alert('Введите текст поста');
-                newPostText.current.blur();
             }
+            textarea.blur();
         } else if (e.code === 'Enter' && e.shiftKey) {
-            newPostText.current.value = newPostText.current.value + '\ ';
-            console.log(newPostText.current.value)
+            newPostText = newPostText + '\ ';
         }
     }
     return (
         <div className={localStyle.container}>
             <h3>My Posts</h3>
             <div className={localStyle.managment}>
-                <textarea onKeyDown={addPostKey} ref={newPostText} placeholder='Your Post' ></textarea>
+                <textarea onInput={inputText} onKeyDown={addPostKey} onFocus={textareafocus} placeholder='Your Post' ></textarea>
                 <button onClick={addPost}>Add Post</button>
             </div>
             <div className={localStyle.list}>
-                {props.postsData.map(item => <Post id={item.id} text={item.text} />)}
+                {props.postsData.map(item => <Post id={item.id} text={item.text} dispatch={props.dispatch} />)}
             </div>
         </div>
 
