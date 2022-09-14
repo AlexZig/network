@@ -40,13 +40,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 800;margin:0.5em 0;}
 /*--------------------*/
 
 
-:root {
-	--bacground: #111111;
-	--color: #e6e6e6;
-	--borderColor: #e6e6e689;
-	--borderFocus: #e6e6e6;
-	--decorBg: linear-gradient(rgba(133, 6, 139, 0.88), rgb(196, 14, 102));
-}
+
 
 * {
 	/* transition: all 0.4s; */
@@ -60,7 +54,15 @@ body {
 	color: var(--color);
 	background-color: var(--bacground);
 }
-
+body {
+	--bacground: #111111;
+	--color: #e6e6e6;
+	--borderColor: #e6e6e689;
+	--borderFocus: #e6e6e6;
+	--decorColor1: #84068b;
+	--decorColor2: rgb(196, 14, 102);
+	--decorBg: linear-gradient(var(--decorColor1), var(--decorColor2));
+}
 a {
 	color: inherit;
 	font-size: inherit;

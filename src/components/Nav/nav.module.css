@@ -15,6 +15,6 @@
     padding: 8px;
 }
 .link:hover{
-    background-color: var(--borderColor);
-    color: var(--bacgroundColor);
+    background: var(--decorBg);
+    /* color: var(--bacgroundColor); */
 }

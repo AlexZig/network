@@ -15,6 +15,7 @@ function App(props) {
         <Route
           path='/profile'
           element={<Profile 
+            decorColor={props.state.decorColor}
             profileData={props.state.profilePage}
             dispatch={props.dispatch}
           />}

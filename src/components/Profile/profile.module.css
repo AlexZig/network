@@ -14,4 +14,30 @@
     min-height: 150px;
     max-height: 200px;
     background: var(--decorBg);
+    position: relative;
+}
+.settings{
+    position: absolute;
+    top: 8px;
+    right: 50%;
+    width: 90%;
+    padding: 8px;
+    transform: translateX(50%);
+    border: 1px solid var(--bacground);
+    background-color: var(--bacground);
+    border-right: 0;
+    clip-path: inset(-10px -24px -10px 100.05%);
+    transition: 0.5s;
+}
+.settings:hover{
+    clip-path: inset(-10px -24px -10px 0%);
+}
+.settings img{
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: -1px;
+    right: 0px;
+    transform: translateX(100%);
+    cursor: pointer;
 }

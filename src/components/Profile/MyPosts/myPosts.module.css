@@ -35,7 +35,7 @@
     transition: 0.4s;
 }
 .managment button:hover{
-    background-color: var(--borderColor);
+    background: var(--decorBg);
 }
 .managment textarea{
     padding: 8px;

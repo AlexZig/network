@@ -37,7 +37,7 @@
     border-radius: 100%;
 }
 .list a:hover{
-    background-color: var(--borderColor);
+    background: var(--decorBg);
 }
 .massages{
     position: relative;
@@ -64,7 +64,8 @@
     resize: none;
     overflow: hidden;
     overflow-y: auto;
-    min-height: 60px;
+    height: 40px;
+    min-height: 40px;
     max-height: 160px;
     border: 1px solid var(--borderColor);
     background-color: var(--bacground);
@@ -85,13 +86,13 @@
     border-color: var(--color);
 }
 .managment button{
-    height: 5vh;
-    width: 5vh;
+    height: 40px;
+    width: 40px;
     background-color: var(--bacground);
     color: var(--color);
     border: 1px solid var(--borderColor);
     transition: 0.4s;
 }
 .managment button:hover{
-    background-color: var(--borderColor);
+    background: var(--decorBg);
 }

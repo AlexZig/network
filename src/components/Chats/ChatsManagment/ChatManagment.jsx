@@ -37,7 +37,7 @@ function ChatsManagment(props) {
     textarea.style.height = textarea.scrollHeight + "px";
   };
   let blur = () => {
-    textarea.style.height = 60 + "px";
+    textarea.style.height = 40 + "px";
   };
   return (
     <div className={localStyle.managment}>

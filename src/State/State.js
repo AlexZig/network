@@ -1,6 +1,17 @@
 const ADD_POST = 'ADD-POST';
 const SUBMIT_MASSAGE = 'SUBMIT-MASSAGE';
 const DELETE_POST = 'DELETE-POST';
+const NEW_COLOR = 'NEW-COLOR';
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+let randomDecorColor1 = getRandomColor();
+let randomDecorColor2 = getRandomColor();
 let store = {
     _state: {
         chatsPage: {
@@ -20,6 +31,10 @@ let store = {
                 { id: 1, text: 'Hello2' },
                 { id: 2, text: 'Hello3' }
             ]
+        },
+        decorColor: {
+            decorColor1: randomDecorColor1,
+            decorColor2: randomDecorColor2
         }
     },
     getState() {
@@ -55,6 +70,13 @@ let store = {
             for (let i = 0; i < this.getState().profilePage.posts.length; i++) {
                 this.getState().profilePage.posts[i].id = i;
             }
+
+        }else if (action.type === NEW_COLOR) {
+            if (action.name === 'color1') {
+                this.getState().decorColor.decorColor1 = action.color;
+            }else{
+                this.getState().decorColor.decorColor2 = action.color;
+            }
         }
         this.mainRender(this.getState());
     },
@@ -75,6 +97,13 @@ export const deletePostActionCreator = (postID) => {
     return {
         type: DELETE_POST,
         postID: postID
+    }
+}
+export const newColorActionCreator = (color, name) => {
+    return {
+        type: NEW_COLOR,
+        color: color,
+        name: name
     }
 }
 export default store;
