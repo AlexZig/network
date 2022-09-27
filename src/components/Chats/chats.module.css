@@ -47,6 +47,9 @@
     width: 50%;
     border-left: 1px solid var(--borderColor);
 }
+.massage_text{
+    white-space: pre-wrap;
+}
 .managment{
     position: absolute;
     bottom: 0;
@@ -95,4 +98,5 @@
 }
 .managment button:hover{
     background: var(--decorBg);
+    color: var(--decorColorText);
 }

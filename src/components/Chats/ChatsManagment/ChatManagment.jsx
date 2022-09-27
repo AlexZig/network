@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { createElement } from 'react'
+import { submitMassageActionCreator } from '../../../State/submitMassage-reducer';
 import localStyle from '../chats.module.css'
-import { submitMassageActionCreator } from '../../../State/State';
 function ChatsManagment(props) {
   let textarea;
-
+  let br = createElement('br');
   let submitMassage = () => {
     let action = submitMassageActionCreator(textarea.value);
     if (textarea.value !== '') {
@@ -25,7 +25,7 @@ function ChatsManagment(props) {
       }
       textarea.blur();
     } else if (e.code === 'Enter' && e.shiftKey) {
-      textarea.value = textarea.value + '\ ';
+
     }
   }
 

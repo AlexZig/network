@@ -60,7 +60,8 @@ body {
 	--borderColor: #e6e6e689;
 	--borderFocus: #e6e6e6;
 	--decorColor1: #84068b;
-	--decorColor2: rgb(196, 14, 102);
+	--decorColor2: #c40e66;
+	--decorColorText: #e6e6e6;
 	--decorBg: linear-gradient(var(--decorColor1), var(--decorColor2));
 }
 a {

@@ -1,7 +1,8 @@
 import React from 'react';
+import localStyle from '../chats.module.css'
 function Massage(props) {
     return ( 
-        <div>{props.massage}</div>
+        <div className={localStyle.massage_text}>{props.massage}</div>
      );
 }
 

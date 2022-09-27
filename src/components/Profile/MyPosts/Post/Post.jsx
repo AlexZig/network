@@ -1,17 +1,16 @@
 import React from 'react';
 import localStyle from './post.module.css';
 import img from '../../../../img/ava.jpg';
-import { deletePostActionCreator } from '../../../../State/State';
+import { deletePostActionCreator } from '../../../../State/profile-reducer';
+
 function Post(props) {
-    let post = React.createRef();
-    let deletePost = () => {
-        let postID = post.current.id;
-        console.log(postID)
+    let deletePost = (e) => {
+        let postID = e.target.parentNode.id;
         let action = deletePostActionCreator(postID);
         props.dispatch(action);
     }
     return (
-        <div className={localStyle.item} id={props.id} ref={post}>
+        <div className={localStyle.item} id={props.id}>
             <img src={img} />
             <h3>Alex</h3>
             <p>{props.text}</p>

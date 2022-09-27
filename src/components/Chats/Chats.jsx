@@ -18,7 +18,7 @@ function Chats(props) {
                 </div>
                 <div className={localStyle.massages}>
                     <ChatsManagment dispatch={props.dispatch} />
-                    {props.massagesData.massages.map(item => <Massage massage={item.massage} id={item.id} />)}
+                    {props.massagesData.massages.map(item => <Massage massage={item.massageText} id={item.id} />)}
                 </div>
             </div>
         </div>

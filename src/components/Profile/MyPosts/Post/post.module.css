@@ -4,6 +4,9 @@
     position: relative;
     transition: 0.4s;
 }
+.item p{
+    white-space: pre-wrap;
+}
 .item img{
     width: 56px;
     height: 56px;

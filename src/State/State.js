@@ -1,7 +1,8 @@
-const ADD_POST = 'ADD-POST';
-const SUBMIT_MASSAGE = 'SUBMIT-MASSAGE';
-const DELETE_POST = 'DELETE-POST';
-const NEW_COLOR = 'NEW-COLOR';
+import deletePostReducer from "./deletePost-reducer";
+import newColorReducer from "./newColor-reducer";
+import profileReducer from "./profile-reducer";
+import massagesReducer from "./submitMassage-reducer";
+
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -20,9 +21,9 @@ let store = {
                 { id: 1, name: 'Leonid' },
             ],
             massages: [
-                { id: 0, massage: 'ok' },
-                { id: 1, massage: 'no' },
-                { id: 2, massage: 'yes' }
+                { id: 0, massageText: 'ok' },
+                { id: 1, massageText: 'no' },
+                { id: 2, massageText: 'yes' }
             ]
         },
         profilePage: {
@@ -34,7 +35,8 @@ let store = {
         },
         decorColor: {
             decorColor1: randomDecorColor1,
-            decorColor2: randomDecorColor2
+            decorColor2: randomDecorColor2,
+            textColor: '#e6e6e6'
         }
     },
     getState() {
@@ -47,65 +49,14 @@ let store = {
         this.mainRender = observer;
     },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 0,
-                text: action.postText
-            };
-            this.getState().profilePage.posts.unshift(newPost);
-            for (let i = 0; i < this.getState().profilePage.posts.length; i++) {
-                this.getState().profilePage.posts[i].id = i;
-            }
-
-        } else if (action.type === SUBMIT_MASSAGE) {
-            let newMassage = {
-                id: this.getState().chatsPage.massages.length,
-                massage: action.massageText
-            };
-            this.getState().chatsPage.massages.push(newMassage);
-
-        } else if (action.type === DELETE_POST) {
-            let postNumber = action.postID;
-            this.getState().profilePage.posts.splice(postNumber, 1);
-            for (let i = 0; i < this.getState().profilePage.posts.length; i++) {
-                this.getState().profilePage.posts[i].id = i;
-            }
-
-        }else if (action.type === NEW_COLOR) {
-            if (action.name === 'color1') {
-                this.getState().decorColor.decorColor1 = action.color;
-            }else{
-                this.getState().decorColor.decorColor2 = action.color;
-            }
-        }
+        this.getState().profilePage = profileReducer(this.getState().profilePage, action);
+        this.getState().decorColor = newColorReducer(this.getState().decorColor, action);
+        this.getState().chatsPage.massages = massagesReducer(this.getState().chatsPage.massages, action);
+        this.getState().profilePage.posts = deletePostReducer(this.getState().profilePage.posts, action)
         this.mainRender(this.getState());
     },
 }
-export const addPostActionCreator = (postText) => {
-    return {
-        type: ADD_POST,
-        postText: postText
-    }
-}
-export const submitMassageActionCreator = (massageText) => {
-    return {
-        type: SUBMIT_MASSAGE,
-        massageText: massageText
-    }
-}
-export const deletePostActionCreator = (postID) => {
-    return {
-        type: DELETE_POST,
-        postID: postID
-    }
-}
-export const newColorActionCreator = (color, name) => {
-    return {
-        type: NEW_COLOR,
-        color: color,
-        name: name
-    }
-}
+
 export default store;
 window.store = store;
 

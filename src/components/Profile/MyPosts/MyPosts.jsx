@@ -1,7 +1,8 @@
 import React from 'react';
+import { addPostActionCreator } from '../../../State/profile-reducer';
 import localStyle from './myPosts.module.css'
 import Post from './Post/Post';
-import { addPostActionCreator } from '../../../State/State';
+
 
 function MyPosts(props) {
     let newPostText = '';

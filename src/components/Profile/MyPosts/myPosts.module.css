@@ -36,6 +36,7 @@
 }
 .managment button:hover{
     background: var(--decorBg);
+    color: var(--decorColorText);
 }
 .managment textarea{
     padding: 8px;
