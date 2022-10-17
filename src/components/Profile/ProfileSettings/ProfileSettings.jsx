@@ -1,12 +1,10 @@
 import React from 'react'
 import settingsIcon from '../../../img/setings.svg'
-import { newColorActionCreator } from '../../../State/newColor-reducer';
 import localStyle from '../profile.module.css';
 
 function ProfileSettings(props) {
   let colorChang = (e) => {
-    let action = newColorActionCreator(e.target.value, e.target.name);
-    props.dispatch(action);
+    props.newColor(e.target.value, e.target.name);
   }
   return ( 
     <div className={localStyle.settings}>

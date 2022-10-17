@@ -20,13 +20,15 @@ export const submitMassageActionCreator = (massageText) => {
 }
 
 const massagesReducer = (state = initialState, action) => {
+  let stateCopy = {...state};
   if (action.type === submitMassageActionType) {
     let newMassage = {
       id: state.massages.length,
       massageText: action.massageText
     };
-    state.massages.push(newMassage);
+    stateCopy.massages = [...state.massages]
+    stateCopy.massages.push(newMassage);
   }
-  return state;
+  return stateCopy;
 }
 export default massagesReducer;

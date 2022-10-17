@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import Profile from './components/Profile/Profile';
-import Chats from './components/Chats/Chats';
+import ProfileContainer from './components/Profile/ProfileContainer'
+import ChatsContainer from './components/Chats/ChatsContainer';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 
@@ -14,17 +14,17 @@ function App(props) {
       <Routes>
         <Route
           path='/profile'
-          element={<Profile 
-            decorColor={props.state.decorColor}
-            profileData={props.state.profilePage}
-            dispatch={props.dispatch}
+          element={<ProfileContainer 
+            // decorColor={props.state.decorColor}
+            // profileData={props.state.profilePage}
+            // dispatch={props.dispatch}
           />}
         />
         <Route
           path='/chats'
-          element={<Chats
-            massagesData={props.state.chatsPage}
-            dispatch={props.dispatch}
+          element={<ChatsContainer
+            // massagesData={props.state.chatsPage}
+            // dispatch={props.dispatch}
           />}
         />
       </Routes>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { renderIntoDocument } from 'react-dom/test-utils';
 import localStyle from './chats.module.css'
 import ChatsItem from './ChatsItem/ChatsItem';
 import ChatsManagment from './ChatsManagment/ChatManagment';
@@ -17,7 +16,7 @@ function Chats(props) {
 
                 </div>
                 <div className={localStyle.massages}>
-                    <ChatsManagment dispatch={props.dispatch} />
+                    <ChatsManagment newMassage={props.newMassage} />
                     {props.massagesData.massages.map(item => <Massage massage={item.massageText} id={item.id} />)}
                 </div>
             </div>

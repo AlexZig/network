@@ -1,5 +1,4 @@
 import {combineReducers, legacy_createStore as createStore} from 'redux';
-import deletePostReducer from './deletePost-reducer';
 import newColorReducer from './newColor-reducer';
 import profileReducer from './profile-reducer';
 import massagesReducer from './submitMassage-reducer';
@@ -12,7 +11,6 @@ let redusersList = combineReducers(
   }
 );
 let store = createStore(redusersList);
-console.log(store)
-debugger
+window.store = store;
 
 export default store;

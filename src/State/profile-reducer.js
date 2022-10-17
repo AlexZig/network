@@ -22,24 +22,29 @@ export const addPostActionCreator = (postText) => {
 }
 
 const profileReducer = (state = initialState, action) => {
+  let stateCopy = {...state};
   if (action.type === addPostActionType) {
     let newPost = {
       id: 0,
       text: action.postText
     };
-    state.posts.unshift(newPost);
-    for (let i = 0; i < state.posts.length; i++) {
-      state.posts[i].id = i;
+    // let stateCopy = {...state};
+    stateCopy.posts = [...state.posts]
+    stateCopy.posts.unshift(newPost);
+    for (let i = 0; i < stateCopy.posts.length; i++) {
+      stateCopy.posts[i].id = i;
     }
   } else if (action.type === deletePostActionType) {
     let postNumber = action.postID;
-    state.posts.splice(postNumber, 1);
-    for (let i = 0; i < state.posts.length; i++) {
-      state.posts[i].id = i;
+    // let stateCopy = {...state};
+    stateCopy.posts = [...state.posts]
+    stateCopy.posts.splice(postNumber, 1);
+    for (let i = 0; i < stateCopy.posts.length; i++) {
+      stateCopy.posts[i].id = i;
     }
   }
-  return state;
+  return stateCopy;
 }
 
-  
+
 export default profileReducer;

@@ -1,13 +1,9 @@
-import React, { createElement } from 'react'
-import { submitMassageActionCreator } from '../../../State/submitMassage-reducer';
 import localStyle from '../chats.module.css'
 function ChatsManagment(props) {
   let textarea;
-  let br = createElement('br');
   let submitMassage = () => {
-    let action = submitMassageActionCreator(textarea.value);
     if (textarea.value !== '') {
-      props.dispatch(action);
+      props.newMassage(textarea.value);
       textarea.value = '';
     } else {
       alert('Введите текст поста');
@@ -16,9 +12,8 @@ function ChatsManagment(props) {
   }
   let submitMassageKey = (e) => {
     if (e.code === 'Enter' && !e.shiftKey) {
-      let action = submitMassageActionCreator(textarea.value);
       if (textarea.value !== '') {
-        props.dispatch(action);
+        props.newMassage(textarea.value);
         textarea.value = '';
       } else {
         alert('Введите текст поста');
@@ -41,7 +36,7 @@ function ChatsManagment(props) {
   };
   return (
     <div className={localStyle.managment}>
-      <textarea onKeyDown={submitMassageKey} onInput={input} onBlur={blur} onFocus={focus} ref={textarea} placeholder='Your Massage' />
+      <textarea onKeyDown={submitMassageKey} onInput={input} onBlur={blur} onFocus={focus} placeholder='Your Massage' />
       <button onClick={submitMassage}>⇪</button>
     </div>
   );
